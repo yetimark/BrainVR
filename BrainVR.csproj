@@ -305,6 +305,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LightBeam.cs" />
     <Compile Include="Assets\RaycastForward.cs" />
   </ItemGroup>
   <ItemGroup>
