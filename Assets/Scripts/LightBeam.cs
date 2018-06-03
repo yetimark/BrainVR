@@ -11,7 +11,6 @@ public class LightBeam : MonoBehaviour
     private Vector3 end;
     private float width = 0.01f;
     private LineRenderer beam;
-    private Vector3 forward;
 
 	void Awake ()
     {
@@ -29,8 +28,6 @@ public class LightBeam : MonoBehaviour
         this.start = Vector3.zero;
         this.beam.SetPosition(0, this.start);
 
-        this.forward = this.transform.TransformDirection(Vector3.forward) * 10;
-
         if (this.currentObject != null) //if something in is in the way, go to that position, otherwise be 10
 
         {
@@ -39,7 +36,7 @@ public class LightBeam : MonoBehaviour
         }
         else
         {
-            this.end = this.forward;
+            this.end = new Vector3(0, 0, 10);
             this.beam.SetPosition(1, this.end);
         }
     }

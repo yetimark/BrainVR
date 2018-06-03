@@ -24,7 +24,7 @@ public class PointerMoveTemp : MonoBehaviour // this script should be removed wh
 
 
         this.transform.Rotate(Vector3.up * this.yaw);
-        this.transform.Rotate(Vector3.right * this.pitch);
+        this.transform.Rotate(Vector3.left * this.pitch);
         this.transform.Rotate(Vector3.forward * this.roll);
 	}
 }
