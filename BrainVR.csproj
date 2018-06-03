@@ -305,8 +305,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LightBeam.cs" />
-    <Compile Include="Assets\RaycastForward.cs" />
+    <Compile Include="Assets\Scripts\LightBeam.cs" />
+    <Compile Include="Assets\Scripts\MoveObject.cs" />
+    <Compile Include="Assets\Scripts\PointerMoveTemp.cs" />
+    <Compile Include="Assets\Scripts\RaycastForward.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\admin\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
