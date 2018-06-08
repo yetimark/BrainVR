@@ -61,8 +61,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\LightBeam.cs" />
     <Compile Include="Assets\Scripts\MoveObject.cs" />
+    <Compile Include="Assets\Scripts\PointerEnd.cs" />
     <Compile Include="Assets\Scripts\PointerMoveTemp.cs" />
     <Compile Include="Assets\Scripts\RaycastForward.cs" />
+    <Compile Include="Assets\Scripts\UIMaster.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Blaine/Documents/GitHub/BrainVR/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

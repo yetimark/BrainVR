@@ -7,11 +7,11 @@ public class MoveObject : MonoBehaviour
     public GameObject currentObject;
     public Transform objectTransform;
     public float theDistance;
+    public bool selected = false;
 
     private float skipZ = 0.01f;
-    private bool selected = false;
-    private bool atLeastOneSelection = false;
     private float zoom;
+    private Vector3 vector;
 
 	
 	void Update ()
@@ -36,7 +36,7 @@ public class MoveObject : MonoBehaviour
 
     public void SelectObject()
     {
-        if (Input.GetMouseButtonDown(0) && this.currentObject != null)      //select button and pointing at an object
+        if (Input.GetMouseButtonDown(0) && this.currentObject != null)      //select button and pointing at an object   //maybe add in thename
         {
             this.selected = !this.selected;
             this.objectTransform.parent = null;     //Orphan maker
@@ -45,14 +45,18 @@ public class MoveObject : MonoBehaviour
 
     public void ObjectMove()
     {
+                        //make sure zoom moves object along local z and not global z    //no that doesnt seem correct
 
         if (this.selected)
         {
-            this.atLeastOneSelection = true;
-            this.objectTransform.parent = this.transform;
+            this.objectTransform.SetParent(this.transform, true);      //was true
+
+            //this.objectTransform.position = 
+            this.objectTransform.rotation = this.transform.rotation;        //backwards?
 
             if(this.zoom != 0 && this.theDistance > 0.5 && this.theDistance < 10)
             {
+                //this.vector = new Vector3()
                 this.objectTransform.transform.Translate(Vector3.forward * this.zoom);
             }
             else if(this.theDistance <= 0.5)

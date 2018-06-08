@@ -7,7 +7,9 @@ public class RaycastForward : MonoBehaviour
     public GameObject currentObject;
     public Transform glow;
     public float theDistance;
+    public bool hiit = false;
 
+    public string theName = "";
     private Vector3 forward;
 	
 	void Update ()
@@ -16,23 +18,33 @@ public class RaycastForward : MonoBehaviour
 
         //Direction for raycast
         this.forward = this.transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(this.transform.position, this.forward, Color.cyan);
+        //Debug.DrawRay(this.transform.position, this.forward, Color.cyan);
 
         if (Physics.Raycast(this.transform.position, this.forward, out hit))
         {
-            this.theDistance = hit.distance;
-            this.currentObject = hit.collider.gameObject;
-            if(GameObject.Find("Glow(Clone)") == null)
+            Debug.Log(hit.collider.name);
+            if(this.theName == null)
             {
-                StartGlowing();
+                this.theName = hit.collider.name;
+                Debug.Log(this.theName);
+                this.hiit = hit.collider;
+                this.theDistance = hit.distance;
+                this.currentObject = hit.collider.gameObject;
+
+                if (GameObject.Find("Glow(Clone)") == null)
+                {
+                    StartGlowing();
+                }
             }
         }
         else
         {
             this.currentObject = null;
+            this.theName = null;
             Destroy(GameObject.Find("Glow(Clone)"));
+            this.hiit = false;          
         }
-	}
+    }
 
     public void StartGlowing()
     {      

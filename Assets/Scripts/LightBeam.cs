@@ -31,12 +31,12 @@ public class LightBeam : MonoBehaviour
         if (this.currentObject != null) //if something in is in the way, go to that position, otherwise be 10
 
         {
-            this.end = new Vector3(0, 0, theDistance);
+            this.end = new Vector3(0, 0, this.theDistance);
             this.beam.SetPosition(1, this.end);
         }
         else
         {
-            this.end = new Vector3(0, 0, 10);
+            this.end = new Vector3(0, 0, 10) + this.start;      
             this.beam.SetPosition(1, this.end);
         }
     }
